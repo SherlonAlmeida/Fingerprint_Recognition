@@ -1,0 +1,4 @@
+fingerprint_v1.py
+	Realiza a limiarização com o Threshold ótimo.
+	Realiza a Dilatação, Erosão, Abertura e Fechamento.
+	Imprime o resultado das operações.
