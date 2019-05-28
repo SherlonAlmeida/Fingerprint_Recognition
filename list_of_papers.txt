@@ -1,0 +1,77 @@
+Fingerprint Feature Extraction 2011 Article
+Fingerprint Recognition 2009 Slides
+Fingerprint Recognition System and Tehniques: A Survey 2013 Article
+Survey on Fingerprint Recognition System using Image Preprocessing and De-noising 2016 Article
+A survey of fingerprint classification Part I: Taxonomies on feature extraction methods and learning models 2015 Article
+A survey on fingerprint minutiae-based local matching for verification and identification: Taxonomy and experimental evaluation 2015 Article
+Minutiae-based fingerprint matching decomposition: Methodology for big data frameworks 2017 Article
+Learning Fingerprint minutiae location and type 2003 Article
+Detecting the Fingerprint minutiae by adaptive tracing the gray-level ridge 2001 Article
+FINGERPRINT CLASSIFICATION 1996 Article
+FINGERPRINT RECOGNITION USING MINUTIA SCORE MATCHING 2009 Article
+Minutiae Extraction from Fingerprint Images - a Review 2011 Article
+Automatic Fingerprint Recognition Systems 2004 Book
+Biometric Authentication 2004 Book
+A Comprehensive Survey on Fingerprint Recognition Systems 2015 Article
+On-Line Fingerprint Verification 1996 Article
+Direct Gray-Scale Minutiae Detection In Fingerprints 1997 Article
+Fingerprint Image Enhancement: Algorithm and Performance Evaluation 1998 Article
+Filterbank-Based Fingerprint Matching 2000 Article
+Fingerprint Minutiae Matching Based on the Local And Global Structures 2000 Article
+FINGERPRINT MATCHING USING MINUTIAE AND TEXTURE FEATURES 2001 Article
+FVC2000: Fingerprint Verification Competition 2002 Article
+FVC2002: Second Fingerprint Verification Competition 2002 Article
+Fingerprint Matching Using an Orientation-Based Minutia Descriptor 2003 Article
+A Fingerprint Recognition Algorithm Using Phase-Based Image Matching for Low-Quality Fingerprints 2005 Article
+Pores and Ridges: High-Resolution Fingerprint Matching Using Level 3 Features 2007 Article
+Fingerprint Recognition 2007 Article
+Local Features for Enhancement and Minutiae Extraction in Fingerprints 2008
+FINGERPRINT MATCHING 2010 Article
+Latent Fingerprint Matching 2011 Article
+A Novel Method For Fingerprint Feature Extraction 2010 Article
+A Broad Survey on Fingerprint Recognition Systems 2016 Article
+An efficient Algorithm for fingerprint preprocessing and feature extraction 2010 Article
+ADVANCED FEATURE EXTRACTION ALGORITHMS FOR AUTOMATIC FINGERPRINT RECOGNITION SYSTEMS 2007 Thesis
+Classification of fingerprint images with the aid of morphological operation and AGNN classifier 2018 Article
+Fingerprint Verification System using Minutiae Extraction Technique 2008 Article
+Digital grid method for fingerprint identification and objective report writing 2016 Article
+Knowledge-Based Systems 2017 Article
+Efficient Fingerprint Feature Extraction: Algorithm and Performance Evaluation 2008 Article
+FEATURE EXTRACTION FOR FINGERPRINT CLASSIFICATION 1975 Article
+Fast and accurate algorithm for core point detection in fingerprint images 2013 Article
+Fingerprint Recognition System : Design & Analysis 2014 Article
+Fingerprint Pattern Classification 1983 Article
+Noisy and incomplete fingerprint classification using local ridge distribution models 2015 Article
+Automated Fingerprint Recognition Using Structural Matching 1990 Article
+An efficient Algorithm for fingerprint preprocessing and feature extraction 2010 Article
+A fingerprint retrieval system based on level-1 and level-2 features 2012 Article
+A high performance fingerprint liveness detection method based on quality related features 2012 Article
+A medium resolution fingerprint matching system 2013 Article
+A Minutiae Count Based Method for Fake Fingerprint Detection 2015 Article
+An efficient Algorithm for fingerprint preprocessing and feature extraction 2010 Article
+A new integrated SVM classifiers for relevance feedback content-based image retrieval using EM parameter estimation 2011 Article
+An improved ridge features extraction algorithm for distorted fingerprints matching 2013 Article
+A robust and non-invertible fingerprint template for fingerprint matching system 2018 Article
+A survey of fingerprint classification Part I: Taxonomies on feature extraction methods and learning models 2015 Article
+Classification of fingerprint images with the aid of morphological operation and AGNN classifier 2018 Article
+Composition of fingermark residue: A qualitative and quantitative review 2012 Article
+Enhancement of fingerprint using FFT×|FFT|n filter 2015 Article
+Fast and accurate algorithm for core point detection in fingerprint images 2013 Article
+3D fingerprint imaging system based on full-field fringe projection profilometry 2014 Article
+Fast exact fingerprint indexing based on Compact Binary Minutia Cylinder Codes 2018 Article
+Fingerprint Recognition Using Zone Based Linear Binary Patterns 2015 Article
+Fingerprints verification based on their spectrum 2016 Article
+Fingerprint verification using statistical descriptors 2010 Article
+FIVDL: Fingerprint Image Verification using Dictionary Learning 2015 Article
+Fusion of finger types for fingerprint indexing using minutiae quadruplets 2014 Article
+KEPLER: Simultaneous estimation of keypoints and 3D pose of unconstrained faces in a unified framework by learning efficient H-CNN regressors 2018 Article
+Spoofing protection for fingerprint scanner by fusing ridge signal and valley noise 2010 Article
+Utilization of environmentally acquired very small particles as a means of association 2015 Article
+Skeletonization Algorithm for Binary Images 2013 Article
+Fingerprint minutiae extraction from skeletonized binary images 1999 Article
+Preprocessing and postprocessing for skeleton-based fingerprint minutiae extraction 2007 Article
+Efficient Fingerprint Feature Extraction: Algorithm and Performance Evaluation 2008 Article
+SURVEY OF PRIMARY METHODS OF FINGERPRINT FEATURE EXTRACTION 2018 Article
+EFFICIENT FINGERPRINT IMAGE ENHANCEMENT ALGORITHM BASED ON GABOR FILTER 2014 Article
+Improved Adaptive Threshold Algorithm for Fingerprint Segmentation Based on Multiple Features 2010 Article
+
