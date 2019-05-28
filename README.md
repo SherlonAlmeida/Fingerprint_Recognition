@@ -9,5 +9,11 @@
 and http://bias.csr.unibo.it/fvc2000/databases.asp <br>
 **Input example:**<br>
 ![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/01_example.jpg)
+
+<br>
+<br>
+
 **Initial Enhancement:**<br>
 ![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/02_Initial_Enhancement.png)
+
+<br>
