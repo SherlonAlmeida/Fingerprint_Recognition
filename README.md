@@ -17,8 +17,8 @@ http://bias.csr.unibo.it/fvc2000/databases.asp <br>
 http://biometrics.idealtest.org/dbDetailForUser.do?id=7 <br>
 
 **Input examples:** <br>
-![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/01_example1.jpg) <br>
-![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/01_example2.jpg) <br>
+![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/01_example1.jpg) 
+![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/01_example2.jpg) 
 ![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/01_example3.jpg) <br>
 **Database:** The images have different sizes and the fingerprints may have been taken with different rotations and noise.<br>
 
