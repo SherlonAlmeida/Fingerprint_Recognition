@@ -74,4 +74,3 @@ Efficient Fingerprint Feature Extraction: Algorithm and Performance Evaluation 2
 SURVEY OF PRIMARY METHODS OF FINGERPRINT FEATURE EXTRACTION 2018 Article
 EFFICIENT FINGERPRINT IMAGE ENHANCEMENT ALGORITHM BASED ON GABOR FILTER 2014 Article
 Improved Adaptive Threshold Algorithm for Fingerprint Segmentation Based on Multiple Features 2010 Article
-

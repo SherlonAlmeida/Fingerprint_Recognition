@@ -6,7 +6,7 @@
 
 **Abstract:** Given an image containing a fingerprint as an input, the algorithm must verify that this fingerprint is in the database. <br>
 
-**Image Processing Tasks Involved:** Image enhancement, Morphology. <br>
+**Image Processing Tasks Involved:** Image Enhancement, Image Segmentation, Morphology Processing. <br>
 
 **Steps:** Input -> Image Enhancement (Gabor Filter) -> Image Segmentation (Adaptative Limiarization) -> Morphology Processing (Opening or Erosion) -> Features Extraction (Minutiae) -> Matching
 
@@ -19,5 +19,7 @@ http://biometrics.idealtest.org/dbDetailForUser.do?id=7 <br>
 **Input example:** <br>
 ![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/01_example.jpg) <br>
 
-**Initial Enhancement:**<br>
+**Initial Results:**<br>
 ![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/02_Initial_Enhancement.png) <br>
+
+**Results:** The input images was binarized with adaptive limiarization in order to segment the fingerprint. After that, the morphological processing was applied to remove noise. The actual results show that are necessary a method to improve the input image before the segmentation, to remove the discontinuities in the fingerprint, because the features extraction step depends of it to do a better work.
