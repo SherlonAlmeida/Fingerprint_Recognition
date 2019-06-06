@@ -1,0 +1,9 @@
+Dicas Moacir:
+    (OK) Utilizar escalas no filtro de gabor maiores, para evitar pegar transicoes muito pequenas.
+    (OK) Utilizar mais rotacoes no filtro de gabor.
+    Apos a imagem filtrada por Gabor converter imagem obtida entre -1 e 1 e aplicar funcao x^3 ou sigmoid pra ressaltar apenas os valores mais proximos de preto, que sao os valores que interessam. Apos isso utilizar o somatorio das imagens normalmente.
+    (OK) Posso utilizar a skeletonizacao do scikit image.
+    (OK) Posso seguir usando 6 para treino e 2 para validacao.
+    Podemos marcar outro dia que nao seja o dia 12/06 para tirar duvidas.
+    A data de entrega sera dia 24/06, mas se tiver que apresentar dia 19/06 eh so mostrar o que tem.
+    A demo deve ser feita online, com algum exemplo simples pra mostrar funcionando (Python Notebook)
