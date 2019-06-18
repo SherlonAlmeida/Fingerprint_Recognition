@@ -1,13 +1,21 @@
-###### Useful Libraries ####################################
-import numpy as np                                         #
-import imageio, sys, math                                  #
-import matplotlib.pyplot as plt                            #
-from scipy.fftpack import fftn, ifftn, fftshift, ifftshift #
-from scipy import ndimage                                  #
-from matplotlib.colors import LogNorm                      #
-from skimage.morphology import skeletonize                 #
-from skimage.util import invert                            #
+########## INFORMATIONS ####################################
+#Author:     Sherlon Almeida da Silva                      #
+#University: University of Sao Paulo                       #
+#Country:    Brazil                                        #
+#Updated:    06/24/2019                                    #
 ############################################################
+
+###### Useful Libraries ##########################################
+import numpy as np                                               #
+import imageio, sys, math                                        #
+import matplotlib.pyplot as plt                                  #
+from scipy.fftpack import fftn, ifftn, fftshift, ifftshift       #
+from scipy import ndimage                                        #
+from matplotlib.colors import LogNorm                            #
+from skimage.morphology import skeletonize                       #
+from skimage.util import invert                                  #
+from draw import *   #My implementation in the current directory #
+##################################################################
 
 
 """Gera o filtro de Gabor para os parametros passados"""
@@ -216,13 +224,16 @@ def normalize_values(img):
     return img_norm
 
 """Mostra as 3 imagens, uma ao lado da outra"""
-def show_image(img, img_out):
+def show_image(img, img_draw, img_out):
     plt.figure(figsize=(10,12))
     plt.suptitle("Resultado Obtido", fontsize=16)
-    plt.subplot(121)
-    plt.imshow(img, cmap='gray')
+    plt.subplot(131)
     plt.title("Original")
-    plt.subplot(122)
+    plt.imshow(img, cmap='gray')
+    plt.subplot(132)
+    plt.title("Drawn")
+    plt.imshow(img_draw, cmap='gray')
+    plt.subplot(133)
     plt.title("Output")
     plt.imshow(img_out, cmap='gray')
     plt.show()
@@ -252,18 +263,19 @@ def main():
         img_out = np.zeros([M,N], dtype=float) #Inicializa uma matriz para a imagem de saida
         
         #Realizar um laco para processar todas as imagens da pasta Treinamento e depois validar com as imagens da pasta Teste
-        img_out = gabor_filter_frequency_domain(img, M, N)          #Image Enhancement
-        img_out = constrained_least_squares_filtering(img_out, M,N) #Image Deblurring
-        img_out = limiarization(img_out, M, N)                      #Image Segmentation
+        draw = Draw(np.array(img, copy=True).astype(np.float64)); plt.show() #Manual Image Enhancement
+        img_out = gabor_filter_frequency_domain(draw.img, M, N)              #Image Enhancement
+        img_out = constrained_least_squares_filtering(img_out, M,N)          #Image Deblurring
+        img_out = limiarization(img_out, M, N)                               #Image Segmentation
         img_out = opening(img_out, M, N)                            #Image Denoising
         img_out = abs(img_out-np.max(img_out))                      #Image Inverse
         img_out = skeletonize(img_out).astype(np.float64)           #Image Skeletonization
         img_out = abs(img_out-np.max(img_out))                      #Image Inverse
-        #Gerar Minutae Features                                      #Feature Extraction
-        #Realizar Matching                                           #Matching
+        #Gerar Minutae Features                                     #Feature Extraction
+        #Realizar Matching                                          #Matching
                 
         #img_out = normalize_values(img_out)
-        show_image(img, img_out)
+        show_image(img, draw.img, img_out)
         
         
 """Funcao Principal"""
