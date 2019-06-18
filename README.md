@@ -35,9 +35,9 @@ http://biometrics.idealtest.org/dbDetailForUser.do?id=7 <br>
 
 
 **Checkpoint 3 Results:**<br>
-![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/4.1-ManualEnhancement) <br>
-![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/4.2-ManualEnhancement) <br>
-![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/4.3-ManualEnhancementAfterOpening) <br>
+![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/4.1-ManualEnhancement.png) <br>
+![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/4.2-ManualEnhancement.png) <br>
+![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/4.3-ManualEnhancementAfterOpening.png) <br>
 
 **Results:** 
 After preprocessing the image there is an option to draw interactively over the fingerprint, in order to generate an image with less noise. Although a manual step has been employed, it is necessary to appreciate the precision in fingerprint processing. The results obtained are relevant since they have significantly improved the original fingerprint, as can be seen in the images above. The next step is to extract the features from the input fingerprints and match the recognized fingerprints.
