@@ -243,8 +243,8 @@ def size_image(img):
     return img.shape
 
 """Carrega a imagem de entrada"""
-def load_image(nome):
-    img = imageio.imread(nome).astype(np.float64)
+def load_image(name):
+    img = imageio.imread(name).astype(np.float64)
     return img
 
 """Verifica o numero de argumentos passados"""
@@ -260,7 +260,7 @@ def main():
         filename = sys.argv[1]
         img = load_image(filename)
         M,N = size_image(img)
-        img_out = np.zeros([M,N], dtype=float) #Inicializa uma matriz para a imagem de saida
+        img_out = np.zeros([M,N], dtype=np.float64) #Inicializa uma matriz para a imagem de saida
         
         #Realizar um laco para processar todas as imagens da pasta Treinamento e depois validar com as imagens da pasta Teste
         img_out = gabor_filter_frequency_domain(img, M, N)               #Image Enhancement
