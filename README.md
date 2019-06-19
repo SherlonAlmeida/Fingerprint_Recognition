@@ -35,15 +35,23 @@ http://biometrics.idealtest.org/dbDetailForUser.do?id=7 <br>
 
 
 **Checkpoint 3 Results:**<br>
+In this first image there is no modification with the interactive drawing. It is observed that there are several connections between the ridges and valleys that should not be there. <br>
 ![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/4.1-ManualEnhancement.png) <br>
+
+Then in this second image the ridges were highlighted in some places. The result is interesting, since it shows great improvement in the highlighted regions but loses information in the other regions. <br>
 ![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/4.2-ManualEnhancement.png) <br>
+
+And in the third image the process of interactive drawing was inserted after the stage of segmentation and morphological processing, because in this way the effort to enhance the image is reduced and the results are also satisfactory. <br>
 ![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/4.3-ManualEnhancementAfterOpening.png) <br>
 
 **Results:** 
 After preprocessing the image there is an option to draw interactively over the fingerprint, in order to generate an image with less noise. Although a manual step has been employed, it is necessary to appreciate the precision in fingerprint processing. The results obtained are relevant since they have significantly improved the original fingerprint, as can be seen in the images above. The next step is to extract the features from the input fingerprints and match the recognized fingerprints.
 
 **Checkpoint 4 Results:**<br>
+In the first image the interactive drawing process was not considered in order to verify the recognition rate with these configurations. <br>
 ![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/5.1-FeatureExtraction-WithoutDraw.png) <br>
+
+But in the second image, although the results of manual enhancement and skeletonization were better, the recognition maintained the same rate. <br>
 ![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/5.2-FeatureExtraction-WithDraw.png) <br>
 
 **Results:** 
