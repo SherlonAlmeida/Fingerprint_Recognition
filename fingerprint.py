@@ -7,7 +7,7 @@
 
 ###### Useful Libraries ##########################################
 import numpy as np                                               #
-import imageio, sys, math                                        #
+import imageio, sys, math, cv2                                   #
 import matplotlib.pyplot as plt                                  #
 from scipy.fftpack import fftn, ifftn, fftshift, ifftshift       #
 from scipy import ndimage                                        #
@@ -16,7 +16,6 @@ from skimage.morphology import skeletonize                       #
 from skimage.util import invert                                  #
 from draw import *   #My implementation in the current directory #
 ##################################################################
-
 
 """Gera o filtro de Gabor para os parametros passados"""
 def genGabor(sz, omega, theta, func=np.cos, K=np.pi):
@@ -209,6 +208,41 @@ def constrained_least_squares_filtering(g, M, N, k=5, sigma=1.25, gamma=0.02):
     f_rest = np.real(fftshift(ifftn(C)))
     return f_rest
 
+"""Feature Extraction with SIFT"""
+def feature_extraction(img):
+    sift = cv2.xfeatures2d.SIFT_create()
+    keypoints, desc = sift.detectAndCompute(img, None)
+    img_features = cv2.drawKeypoints(img, keypoints, None)
+    return keypoints, desc, img_features
+
+"""Matching between two images"""
+def image_recognition(img1, key1, desc1, img2, key2, desc2):
+    index_params = dict(algorithm=0, trees=5)
+    search_params = dict()
+    flann = cv2.FlannBasedMatcher(index_params, search_params)
+    matches = flann.knnMatch(desc1, desc2, k=2)
+    
+    #Get the matching points
+    good_points = []
+    ratio = 0.95 #Quanto mais baixo, melhor a qualidade das correspondencias
+    for m, n in matches:
+        if m.distance < ratio*n.distance:
+            good_points.append(m)
+    matching_result = cv2.drawMatches(img1, key1, img2, key2, good_points, None)
+    
+    #Define how similar they are
+    number_keypoints = 0
+    if len(key1) <= len(key2):
+        number_keypoints = len(key1)
+    else:
+        number_keypoints = len(key2)
+    print("\n----------------------Recognition Rate----------------------")
+    print("Keypoints 1ST Image: " + str(len(key1)))
+    print("Keypoints 2ND Image: " + str(len(key2)))
+    print("GOOD Matches:", len(good_points))
+    print("How good it's the match: ", len(good_points) / number_keypoints * 100, "%")
+    return matching_result
+
 """Calcula o erro"""
 def rms_error(img, out):
     M,N = img.shape
@@ -223,19 +257,35 @@ def normalize_values(img):
     img_norm = (img_norm * 255).astype(np.float64)
     return img_norm
 
-"""Mostra as 3 imagens, uma ao lado da outra"""
-def show_image(img, img_draw, img_out):
-    plt.figure(figsize=(8,5))
-    plt.suptitle("Resultado Obtido", fontsize=16)
-    plt.subplot(131)
-    plt.title("Original")
-    plt.imshow(img, cmap='gray')
-    plt.subplot(132)
+"""Mostra as imagens, uma ao lado da outra"""
+def show_image(img1, img_draw1, img_out1, img_matching1, img2, img_draw2, img_out2, img_matching2):
+    plt.figure(figsize=(10,12))
+    plt.suptitle("Fingerprint Recognition", fontsize=16)
+    plt.subplot(241)
+    plt.title("Image 1")
+    plt.imshow(img1, cmap='gray')
+    plt.subplot(242)
     plt.title("Drawn")
-    plt.imshow(img_draw, cmap='gray')
-    plt.subplot(133)
-    plt.title("Output")
-    plt.imshow(img_out, cmap='gray')
+    plt.imshow(img_draw1, cmap='gray')
+    plt.subplot(243)
+    plt.title("Skeleton")
+    plt.imshow(img_out1, cmap='gray')
+    plt.subplot(244)
+    plt.title("Features")
+    plt.imshow(img_matching1, cmap='gray')
+    
+    plt.subplot(245)
+    plt.title("Image 2")
+    plt.imshow(img2, cmap='gray')
+    plt.subplot(246)
+    plt.title("Drawn")
+    plt.imshow(img_draw2, cmap='gray')
+    plt.subplot(247)
+    plt.title("Skeleton")
+    plt.imshow(img_out2, cmap='gray')
+    plt.subplot(248)
+    plt.title("Features")
+    plt.imshow(img_matching2, cmap='gray')
     plt.show()
 
 """Retorna as dimensoes da imagem"""
@@ -244,39 +294,47 @@ def size_image(img):
 
 """Carrega a imagem de entrada"""
 def load_image(name):
-    img = imageio.imread(name).astype(np.float64)
+    img = cv2.imread(name, cv2.IMREAD_GRAYSCALE)
     return img
 
 """Verifica o numero de argumentos passados"""
 def verify_arguments():
-    if len(sys.argv) < 2:
-        print("Digite " + str(sys.argv[0]) + " <img>\n")
+    if len(sys.argv) < 3:
+        print("Digite " + str(sys.argv[0]) + " <img1> <img2>\n")
         exit(-1)
     return True
+
+"""Processa uma imagem"""
+def pre_processing(filename):
+    img = load_image(filename)
+    M,N = size_image(img)
+    img_out = np.zeros([M,N], dtype=np.float64) #Inicializa uma matriz para a imagem de saida
+    
+    #Realizar um laco para processar todas as imagens da pasta Treinamento e depois validar com as imagens da pasta Teste
+    img_out = gabor_filter_frequency_domain(img, M, N)               #Image Enhancement
+    img_out = constrained_least_squares_filtering(img_out, M,N)      #Image Deblurring
+    img_out = limiarization(img_out, M, N)                           #Image Segmentation
+    img_out = opening(img_out, M, N)                                 #Image Denoising
+    draw = Draw(img_out); plt.show()                                 #Manual Image Enhancement
+    img_out = abs(draw.img-np.max(draw.img))                         #Image Inverse
+    img_out = skeletonize(img_out).astype(np.float64)                #Image Skeletonization
+    img_out = abs(img_out-np.max(img_out))                           #Image Inverse
+    key,desc,img_matching = feature_extraction(img)                  #Feature Extraction
+    return img,draw.img,img_out,key,desc,img_matching
 
 """Funcao principal"""
 def main():
     if(verify_arguments()):
-        filename = sys.argv[1]
-        img = load_image(filename)
-        M,N = size_image(img)
-        img_out = np.zeros([M,N], dtype=np.float64) #Inicializa uma matriz para a imagem de saida
+        filename1 = sys.argv[1] #Obtem o nome do arquivo da imagem 1
+        filename2 = sys.argv[2] #Obtem o nome do arquivo da imagem 2
         
-        #Realizar um laco para processar todas as imagens da pasta Treinamento e depois validar com as imagens da pasta Teste
-        img_out = gabor_filter_frequency_domain(img, M, N)               #Image Enhancement
-        img_out = constrained_least_squares_filtering(img_out, M,N)      #Image Deblurring
-        img_out = limiarization(img_out, M, N)                           #Image Segmentation
-        img_out = opening(img_out, M, N)                                 #Image Denoising
-        draw = Draw(img_out); plt.show()                                 #Manual Image Enhancement
-        img_out = abs(draw.img-np.max(draw.img))                         #Image Inverse
-        img_out = skeletonize(img_out).astype(np.float64)           #Image Skeletonization
-        img_out = abs(img_out-np.max(img_out))                      #Image Inverse
-        #Gerar Minutae Features                                     #Feature Extraction
-        #Realizar Matching                                          #Matching
-                
-        #img_out = normalize_values(img_out)
-        show_image(img, draw.img, img_out)
+        #Processa as duas imagens e obtem as caracteristicas de cada uma
+        img1,img_draw1,img_out1,key1,desc1,img_matching1 = pre_processing(filename1)
+        img2,img_draw2,img_out2,key2,desc2,img_matching2 = pre_processing(filename2)
         
+        #Realiza o reconhecimento das imagens
+        matching_result = image_recognition(img1, key1, desc1, img2, key2, desc2)
+        show_image(img1, img_draw1, img_out1, img_matching1, img2, img_draw2, img_out2, img_matching2)
         
 """Funcao Principal"""
 main()

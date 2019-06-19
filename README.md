@@ -41,3 +41,10 @@ http://biometrics.idealtest.org/dbDetailForUser.do?id=7 <br>
 
 **Results:** 
 After preprocessing the image there is an option to draw interactively over the fingerprint, in order to generate an image with less noise. Although a manual step has been employed, it is necessary to appreciate the precision in fingerprint processing. The results obtained are relevant since they have significantly improved the original fingerprint, as can be seen in the images above. The next step is to extract the features from the input fingerprints and match the recognized fingerprints.
+
+**Checkpoint 4 Results:**<br>
+![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/5.1-FeatureExtraction-WithoutDraw.png) <br>
+![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/5.2-FeatureExtraction-WithDraw.png) <br>
+
+**Results:** 
+In the features extraction step and recognition step, algorithms from the OpenCV library were used. For the extraction of fingerprint features, the SIFT algorithm (Scale-Invariant Feature Transform) was used and the FLANN (Fast Approximate Nearest Neighbor Search Library) algorithm was used for the recognition step. The results show that even if the image is improved manually, the rate of accuracy remains the same. That is, the features obtained from SIFT are not suitable for fingerprint recognition.
