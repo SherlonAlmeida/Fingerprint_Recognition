@@ -16,11 +16,19 @@
 http://bias.csr.unibo.it/fvc2000/databases.asp <br>
 http://biometrics.idealtest.org/dbDetailForUser.do?id=7 <br>
 
+**To run the program type:** <br>
+python3 fingerprint.py img1 img2 <br>
+
 **Input examples:** <br>
 ![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/01_example1.jpg) 
 ![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/01_example2.jpg) 
 ![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/01_example3.jpg) <br>
 **Database:** The images have different sizes and the fingerprints may have been taken with different rotations and noise.<br>
+
+**Project Steps:**<br>
+![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/00-Project_Steps.jpg) <br>
+
+**Steps:** The figure above shows the steps of the implemented system for fingerprint enhancement and recognition. <br>
 
 **Checkpoint 1 Results:**<br>
 ![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/02_Initial_Enhancement.png) <br>
