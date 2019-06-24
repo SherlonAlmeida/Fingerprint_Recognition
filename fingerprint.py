@@ -319,7 +319,7 @@ def pre_processing(filename):
     img_out = abs(draw.img-np.max(draw.img))                         #Image Inverse
     img_out = skeletonize(img_out).astype(np.float64)                #Image Skeletonization
     img_out = abs(img_out-np.max(img_out))                           #Image Inverse
-    key,desc,img_matching = feature_extraction(img)                  #Feature Extraction
+    key,desc,img_matching = feature_extraction(img)              #Feature Extraction
     return img,draw.img,img_out,key,desc,img_matching
 
 """Funcao principal"""
