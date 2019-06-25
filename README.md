@@ -8,7 +8,7 @@
 
 **Image Processing Tasks Involved:** Image Enhancement, Image Segmentation, Morphology Processing. <br>
 
-**Steps:** Input -> Image Enhancement (Gabor Filter) -> Image Segmentation (Adaptive Limiarization) -> Morphology Processing (Opening) -> Manual Image Enhancement (Interactive Drawing) -> Skeletonization -> Features Extraction (SIFT) -> Matching
+**Steps:** Input -> Image Enhancement: Gabor Filter + Deblurring (Constrained Least Squares Filtering Operation) -> Image Segmentation (Adaptive Limiarization) -> Morphology Processing (Opening) -> Manual Image Enhancement (Interactive Drawing) -> Skeletonization -> Features Extraction (SIFT) -> Matching
 
 **Application:** Biometry <br>
 
