@@ -1,0 +1,34 @@
+----------------------Recognition Rate----------------------
+Images: 101_1 x 101_2
+Keypoints 1ST Image: 217
+Keypoints 2ND Image: 125
+GOOD Matches: 93
+How good it's the match:  74.4 %
+
+----------------------Recognition Rate----------------------
+Images: 101_1 x 101_3
+Keypoints 1ST Image: 217
+Keypoints 2ND Image: 143
+GOOD Matches: 85
+How good it's the match:  59.44055944055944 %
+
+----------------------Recognition Rate----------------------
+Images: 101_1 x 102_4
+Keypoints 1ST Image: 217
+Keypoints 2ND Image: 401
+GOOD Matches: 75
+How good it's the match:  34.56221198156682 %
+
+----------------------Recognition Rate----------------------
+Images: 101_1 x 103_5
+Keypoints 1ST Image: 217
+Keypoints 2ND Image: 285
+GOOD Matches: 79
+How good it's the match:  36.405529953917046 %
+
+----------------------Recognition Rate----------------------
+Images: 101_1 x 104_6
+Keypoints 1ST Image: 217
+Keypoints 2ND Image: 196
+GOOD Matches: 75
+How good it's the match:  38.265306122448976 %

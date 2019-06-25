@@ -59,8 +59,26 @@ After preprocessing the image there is an option to draw interactively over the 
 In the first image the interactive drawing process was not considered in order to verify the recognition rate with these configurations. <br>
 ![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/5.1-FeatureExtraction-WithoutDraw.png) <br>
 
-But in the second image, although the results of manual enhancement and skeletonization were better, the recognition maintained the same rate. <br>
+But in the second image, although the results of manual enhancement and skeletonization were better, the recognition maintained the same rate (**Update:The rate was equal because i forgot of modify the input of SIFT algorithm, then the original image was used. This fault was fixed.). <br>
 ![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/5.2-FeatureExtraction-WithDraw.png) <br>
 
 **Results:** 
 In the features extraction step and recognition step, algorithms from the OpenCV library were used. For the extraction of fingerprint features, the SIFT algorithm (Scale-Invariant Feature Transform) was used and the FLANN (Fast Approximate Nearest Neighbor Search Library) algorithm was used for the recognition step. The results show that even if the image is improved manually, the rate of accuracy remains the same. That is, the features obtained from SIFT are not suitable for fingerprint recognition.
+
+**Checkpoint 5 Results:**<br>
+In the first figure below the similarity rate between 101_1.tif and 101_2.tif fingerprints was compared. The algorithm identified 217 features in image 1 and 125 features in image 2. The algorithm found 93 hits, achieving a similarity rate of 74.4% between images 1 and 2.  <br>
+![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/6.1-101_1x101_2.png) <br>
+
+In the second figure, the similarity rate between 101_1.tif and 102_4.tif was compared. The algorithm identified 217 features in image 1 and 401 features in image 2. The algorithm found 75 hits, achieving a similarity rate of 34.5% between images 1 and 2. <br>
+![image text](https://github.com/SherlonAlmeida/Fingerprint_Recognition/blob/master/6.2-101_1x102_4.png) <br>
+
+To validate invariance to Rotation, Mirroring and Scaling, the 101_1.tif image was modified in 4 versions. The first and second versions correspond to the same rotated image 90 and 180 degrees, respectively. In the third version the image was mirrored horizontally. And in the fourth version the image was resized to a larger size than the original. When comparing the image 101_1.tif with itself the similarity rate is equal to 100%, when rotated 90 ° the similarity rate dropped to 45%. With the 180º rotation the similarity rate was 56.7%. With mirroring the similarity rate dropped to 40.1%, and finally with the resizing the similarity rate was 52.5%.
+
+The similarity between images of the same class and distinct classes was performed using 5 test cases, as can be seen in the table below.
+
+| INPUT     | 101_1.tif | 101_2.tif | 101_3.tif | 102_4.tif | 103_5.tif | 104_6.tif |
+|-----------|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
+| 101_1.tif |    100%   |   74.4%   |   59.4%   |   34.5%   |   36.4%   |   38.2%   |
+
+**Results:** 
+The results show that the variation of rotation, mirroring and scale affect the performance of the algorithm, but in the test cases the algorithm showed reasonable results. As can be seen, for images of the same class the algorithm obtained rates of 74.4% and 59.4% for the images 101_2.tif and 101_3.tif, respectively. While with the images of other classes the algorithm kept the similarity rate lower than 38%. As future works the feature extraction technique can be modified to try to improve the similarity rate.

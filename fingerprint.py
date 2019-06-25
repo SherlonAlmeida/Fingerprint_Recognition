@@ -224,7 +224,7 @@ def image_recognition(img1, key1, desc1, img2, key2, desc2):
     
     #Get the matching points
     good_points = []
-    ratio = 0.95 #Quanto mais baixo, melhor a qualidade das correspondencias
+    ratio = 0.92 #Quanto mais baixo, melhor a qualidade das correspondencias
     for m, n in matches:
         if m.distance < ratio*n.distance:
             good_points.append(m)
@@ -319,7 +319,8 @@ def pre_processing(filename):
     img_out = abs(draw.img-np.max(draw.img))                         #Image Inverse
     img_out = skeletonize(img_out).astype(np.float64)                #Image Skeletonization
     img_out = abs(img_out-np.max(img_out))                           #Image Inverse
-    key,desc,img_matching = feature_extraction(img)              #Feature Extraction
+    img_out = normalize_values(img_out).astype(np.uint8)             #Normalize Values (OpenCV works over uint8 images between 0 and 255)
+    key,desc,img_matching = feature_extraction(img_out)              #Feature Extraction
     return img,draw.img,img_out,key,desc,img_matching
 
 """Funcao principal"""
